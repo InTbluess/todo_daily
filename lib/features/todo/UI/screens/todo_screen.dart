@@ -17,12 +17,11 @@ class TodoScreen extends ConsumerStatefulWidget {
 
 class _TodoScreenState extends ConsumerState<TodoScreen>
     with WidgetsBindingObserver {
-
   @override
   void initState() {
     super.initState();
 
-    // 👇 listen to app lifecycle
+    // listen to app lifecycle
     WidgetsBinding.instance.addObserver(this);
 
     // initial load
@@ -38,13 +37,12 @@ class _TodoScreenState extends ConsumerState<TodoScreen>
   }
 
   @override
-  
-@override
-void didChangeAppLifecycleState(AppLifecycleState state) {
-  if (state == AppLifecycleState.resumed) {
-    MyApp.restartApp(context);
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      MyApp.restartApp(context);
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +51,10 @@ void didChangeAppLifecycleState(AppLifecycleState state) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 64,
-        backgroundColor: const Color.fromARGB(255, 128, 97, 179),
+        backgroundColor: const Color.fromARGB(255, 33, 61, 153),
         shadowColor: Colors.transparent,
         title: const Text(
-          'Todo App',
+          'Daily Do',
           style: TextStyle(fontSize: 24, color: Colors.white),
         ),
         centerTitle: true,
@@ -98,8 +96,7 @@ void didChangeAppLifecycleState(AppLifecycleState state) {
 
           final grouped = groupTodos(filteredTodos);
 
-          final dates = grouped.keys.toList()
-            ..sort((a, b) => b.compareTo(a));
+          final dates = grouped.keys.toList()..sort((a, b) => b.compareTo(a));
 
           return ListView(
             children: dates.map((date) {
@@ -128,10 +125,7 @@ void didChangeAppLifecycleState(AppLifecycleState state) {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (_) => const AddTodoDialog(),
-          );
+          showDialog(context: context, builder: (_) => const AddTodoDialog());
         },
         child: const Icon(Icons.add),
       ),
