@@ -28,8 +28,8 @@ class _TodoTileState extends ConsumerState<TodoTile> {
 
     if (isPast) {
       borderColor = widget.todo.isCompleted
-          ? Colors.green.withOpacity(1)
-          : const Color.fromARGB(255, 206, 50, 39).withOpacity(0.8);
+          ? Colors.green.withOpacity(0.6)
+          : const Color.fromARGB(255, 206, 50, 39).withOpacity(0.6);
     }
 
     return LayoutBuilder(
@@ -39,7 +39,7 @@ class _TodoTileState extends ConsumerState<TodoTile> {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(15),
             child: Stack(
               children: [
                 // BACKGROUND (Swipe actions)
@@ -130,11 +130,11 @@ class _TodoTileState extends ConsumerState<TodoTile> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(15),
                         border: borderColor != null
                             ? Border(
-                                left: BorderSide(color: borderColor, width: 3),
-                                top: BorderSide(color: borderColor, width: 1),
+                                left: BorderSide(color: borderColor, width: 4),
+                                top: BorderSide(color: borderColor, width: 2),
                               )
                             : null,
                       ),

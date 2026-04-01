@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   void restart() {
     setState(() {
-      key = UniqueKey(); // 🔥 forces full rebuild
+      key = UniqueKey();
     });
   }
 
